@@ -1,0 +1,1 @@
+welcome to typescript, like JavaScript but with type safety.
