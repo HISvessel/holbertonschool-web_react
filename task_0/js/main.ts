@@ -19,3 +19,8 @@ const student2: Student = {
 };
 
 const studentList = [student1, student2];
+
+studentList.forEach(student => {
+  student.firstName,
+  student.location
+});
