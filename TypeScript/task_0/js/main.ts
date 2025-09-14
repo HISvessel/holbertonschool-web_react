@@ -6,27 +6,48 @@ interface Student {
 };
 
 const student1: Student = {
-  firstName: "",
-  lastName: "",
-  age: 0,
-  location: ""
+  firstName: "Joseph",
+  lastName: "Gleason",
+  age: 32,
+  location: "Holberton School"
 };
 const student2: Student = {
-  firstName: '',
-  lastName: '',
-  age: 0,
-  location: '',
+  firstName: 'Jean',
+  lastName: 'Carrion',
+  age: 24,
+  location: 'Holberton School',
 };
 
-const studentList = [student1, student2];
+const studentList: Array<Student> = [student1, student2];
 
-const studentTable = document.createElement('table');
-studentTable.insertRow();
+const studentTable: HTMLTableElement = document.createElement('table');
+const tableBody: HTMLTableSectionElement = document.createElement('tbody');
 
-const studentName = document.createElement('row');
-const studentLoc = document.createElement('row');
+const headerRow: HTMLTableRowElement = document.createElement('tr');
+const studentName: HTMLTableCellElement = document.createElement('th');
+const studentLoc: HTMLTableCellElement = document.createElement('th');
 
-const nameListObject = studentList.forEach(student => {
-  const name = student.firstName
-  const location = student.location
+studentName.textContent = 'First Name';
+studentLoc.textContent = 'Location';
+
+headerRow.appendChild(studentName);
+headerRow.appendChild(studentLoc);
+
+studentTable.appendChild(headerRow);
+
+studentList.forEach((student: Student) => {
+  const row: HTMLTableRowElement = document.createElement('tr');
+  const name: HTMLTableCellElement = document.createElement('td');
+  const location: HTMLTableCellElement = document.createElement('td');
+
+
+  name.textContent = student.firstName;
+  location.textContent = student.location;
+
+  row.appendChild(name);
+  row.appendChild(location);
+  tableBody.appendChild(row);
 });
+
+studentTable.appendChild(tableBody);
+document.appendChild(studentTable);
